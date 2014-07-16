@@ -4,17 +4,17 @@ pygments:         true
 paginate:         4
 
 title:            Sharon's Blog
-url:              http://www.pizn.me
+url:              http://sharonlx.github.io
 feed:             /atom.xml
 author:
     name:         Sharon
     email:        ixuan.lee@gmail.com
+    disqus:       sharonlx
 description:      "关于前端技术的杂博 "
 
 about: 			  "热爱生活、热爱技术、热爱运动的小姑娘"
 follow:
     github:       https://github.com/sharonlx
-    twitter:      http://www.twitter.com/piznlin
 
 
 style: 			  /css/style.css
