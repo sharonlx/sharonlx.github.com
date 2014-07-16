@@ -40,5 +40,23 @@ categories: jekyll
 		
 可以看到这样做的好处是markdown本身并没有引入其他标签，保持文章的独立性，坏处是你需要去下载redcarpet的，并且确保你的博客本身是支持*redcarpet*的
 
+遗憾的是我现在还没找到到底extentions的全部列表
 
-#####二、使用hightlighter.js 来进行语法高亮
+#####二、使用插件的形式
+
+1. 从github上下载插件[Jekyll-plugins](https://github.com/nono/Jekyll-plugins) 
+2. 在你的*project* 目录下新建文件夹*_plugins*
+3. 将插件放到*_plugins*目录中，然后修改*_config.yml*文件
+
+
+	```ruby
+	markdown: redcarpet2
+	redcarpet:
+  	extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
+	 ```
+	 
+#####三、使用hightlighter.js 来进行语法高亮
+
+因为github pages 是可以用使用js的，所以可以通过下载highlighter.js来渲染
+
+如果你的博客系统是支持redcarpet的，那么最好用第一种方法。
