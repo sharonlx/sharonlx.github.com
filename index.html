@@ -9,7 +9,7 @@ layout: default
                     <h3 class="main-excerpt-title"><a href="{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h3>
                     <p class="date"><time pubdate="{{ rpost.date }}">{{ rpost.date | date_to_string }}</time></p>
                     <p>{{ rpost.description }}</p>
-                   	<p class="more"><a href="{{ rpost.url }}" title="Read More" rel="nofollow"><span>&#10149;</span>Read More</a></p>
+                   	<p class="more"><a href="{{ rpost.url }}" title="Read More" rel="nofollow"><span>&#10149;</span>阅读更多</a></p>
                 </article>
             {% endfor %}
             {% if paginator.total_pages > 1 %}
@@ -28,8 +28,7 @@ layout: default
 		</div>
 		<div class="aside fn-clear">
 			{% include wg-contact.html %}
-			{% include wg-project.html %}
-			{% include wg-other.html %}
+			{% include wg-friend.html %}
 		</div>
 	</div>
 </section>

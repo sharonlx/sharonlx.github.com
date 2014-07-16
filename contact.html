@@ -1,20 +1,30 @@
 ---
 layout: default
-title: About & Contacts
+title: 关于我们
 ---
 <section class="content">
-	<div class="content-cnt fn-clear">
-		<div class="archives">
-			<h4 class="page-title">A little about me</span></h4>
-			<article class="entry">
-				<p>{{ site.about }}</p>
-                <h3>Contact Me</h3>
-                <p>GTalk / GMail : <a href="mailto:{{ site.author.email }}" title="Mail to pizn">{{ site.author.email }}</a></p>
-                <h3>Change Log</h3>
+    <div class="content-cnt fn-clear">
+        <div class="archives">
+            <h4 class="page-title">关于我</span></h4>
+            <article class="entry">
+                <p>{{ site.about }}</p>
+                <h3>教育背景</h3>
+                <ul>
+                    <li><span class="date">2004年09 ~ 2008年06</span>复旦大学 软件学院 软件工程专业.</li>
+                    <li><span class="date">2008年09 ~ 2011年06</span>复旦大学 计算机学院 计算机软件与理论.</li>
+                </ul> 
+                <h3>工作经历</h3>
+                <ul>
+                    <li><span class="date">2011年07 ~ 2014年04</span>百度 联盟事业部 </li>
+                    <li><span class="date">2011年04 ~ 今</span>去哪儿网 酒店事业部 UGC</li>
+                </ul> 
+                <h3>联系方式</h3>
+                <p>GTalk / GMail : <a href="mailto:{{ site.author.email }}" title="Mail to sharon">{{ site.author.email }}</a></p>
+                <!-- <h3>Change Log</h3>
                 <ul>
                     <li><span class="date">2012-04-26</span>: Black Cube Theme.</li>
-                </ul>
-			</article>
-		</div>
-	</div>
+                </ul> -->
+            </article>
+        </div>
+    </div>
 </section>

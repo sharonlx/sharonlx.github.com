@@ -3,21 +3,20 @@ highlighter: pygments
 pygments:         true
 paginate:         4
 
-title:            Black Cube Theme
+title:            Sharon's Blog
 url:              http://www.pizn.me
 feed:             /atom.xml
 author:
-    name:         PIZn
-    email:        pizner@gmail.com
-description:      "PIZn's blog theme -- Black Cube Theme 1.0 "
+    name:         Sharon
+    email:        ixuan.lee@gmail.com
+description:      "关于前端技术的杂博 "
 
-about: 			  "I am PIZn.I love all kinds of design, attention to the Internet dynamic, dedicated web front development, learn UI and UED."
+about: 			  "热爱生活、热爱技术、热爱运动的小姑娘"
 follow:
-    github:       https://github.com/pizn
+    github:       https://github.com/sharonlx
     twitter:      http://www.twitter.com/piznlin
-description:      "PIZn's blog theme -- Black Cube Theme 1.0 "
 
 
 style: 			  /css/style.css
-blogName: 		  PIZn
-blogDesc: 		  Phosphorus,Iodine & Zinc.
+blogName: 		  D大调交响乐
+blogDesc: 		  念念不忘 必有回响
