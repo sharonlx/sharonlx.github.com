@@ -1,0 +1,119 @@
+---
+layout: post
+title:  "Javascript操作cookie"
+date:   2014-05-27
+categories: cookie Javascript
+---
+
+#JS COOKIE 操作介绍
+
+###cookie介绍
+简单来说cookie就是网站服务器在你电脑上放置的一个文件，但是如果你找到这个文件，会发现里面的内容是经过编码加密过得，所以需要工具才能转换成明文。
+
+很多网站都会在为用户种cookie，以用来实现定制化服务，如购物车、搜索记录等等功能。
+
+###cookie组成
+
+cookie的组成没有明确规范，但是一般都会包含下面几个属性：
+
+ * *domain* 域
+ * *name* cookie的名称
+ * *value* cookie的值
+ * *expires* 过期时间
+ * *path* 路径 默认为 "/" 根目录
+ * *max-age* **IE不支持，使用expires**
+
+###cookie的个数和大小
+不同浏览器能够允许同一个域下的cookie个数不同，而且对cookie的大小限制也不同，下面是针对各个浏览器的进行的统计
+
+|  					| IE6.0 | IE7.0\IE8.0 	| Opera | Firefox | Safari | Chrome |
+|-------|-----|-------|-----|-------|-----|
+| cookie数（域）		| 20	| 50			| 30    | 50      | 没有限制 | 53    |
+| cookie总大小(字节)	| 4095	| 4095			| 4096  | 4097    | 4097   | 4097   |
+
+如果超出个数限制，IE和opera会利用先进先出的原则删除之前的cookie
+cookie个数控制在20~30个， 大小控制在4k(4000)字节， 因为每次发送请求的*header*都会包括这些cookie，占用带宽。
+
+
+###javascript 操作cookie
+
+#### 赋值
+
+在js中，是通过设置document.cookie来操作cookie的。cookie是通过*key/value*来进行存储的，如：
+
+		document.cookie="usreId=123";
+
+如果同时存储多个键值对，可以用*；*隔开，如
+
+		docuemnt.cookie="userId=13421;userLevel=5"
+
+**在cookie的key/value中不能出现*";"*、*","*、*"="*等 **
+
+**value是字符串类型，会默认调用**
+
+cookie在存储时为了避免value出现非法字符，可以对value使用*encodeURIComponent()*方法来编码，如果使用编码后，取值时必须使用*decodeURIComponent()*进行解码才行。
+
+虽然是通过对document.cookie进行直接赋值，但是实际上每次赋值并不会覆盖掉之前的值，如:
+
+		document.cookie = "userId=1";
+		document.cookie = "userLevel=2";
+相当于
+
+		document.addcookie("userId=1");
+		document.addcookie("userLevel=2");
+
+cookie添加时，即使名称相同，如果域和路径不同，那么也会额外再添加一个，所以为了读取到准确的cookie，进行cookie操作时，对同一个cookie确保设置的域名和路径是正确的。
+
+#### 取值
+
+		var cookieArr = document.cookie;//userId=1;userLevel=1
+
+*document.cookie* 的值是类似*key=value;key1=value;key2=value* 这种形式的字符串，所以在取值的时候必须自己去解析。
+
+#### 删除cookie
+
+由于为*cookie*赋值时value的值即使设置为Null,但是由于cookie会默认将value转换为字符串，所以删除cookie不能通过这种方式。而是通过*有效期expires*来实现。
+
+如果设置cookie时，没有设置*expires*，那么默认是设置为sesstion有效时间，也就是会话结束后，cookie就消失了。
+
+如果设置了cookie的有效期，那么在有效期时间内，cookie都不会消失
+
+如果要删除cookie，可以为cookie设置一个过去的时间点，那么cookie就会自动失效了
+
+
+#### cookie操作代码
+
+		function getCookie(objName){//获取指定名称的cookie的值
+	 
+	    	var arrStr = document.cookie.split("; ");
+
+	    	for(var i = 0;i < arrStr.length;i ++){	 
+	        	var temp = arrStr[i].split("=");
+	 	    	if(temp[0] == objName) return unescape(temp[1]);
+	   		}	 
+		}
+		function setCookie(name,value，expires, domain, path)//两个参数，一个是cookie的名子，一个是值
+		{	 
+   			
+			var str = '';
+			str += name + "="+ escape (value) ;
+			if (typeof expires === "object") {
+				str += ";expires=" + expires.toGMTString();
+			}
+			else if (typeof expires === 'number') {
+				var Days = expires; //此 cookie 将被保存 30 天
+				var exp = new Date();    //new Date("December 31, 9998");
+				exp.setTime(exp.getTime() + Days*24*60*60*1000);
+				str += ";expires=" + exp.toGMTString();
+			}
+			else {
+			}
+			domain && str += ';domain=' + domain;
+			path && str ++ ';path=' + path
+		}
+		function deleteCookie(name) {
+			var exp = new Date();106	 
+			exp.setTime(exp.getTime() - 1);
+			var cval=getCookie(name);
+			if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+		}
