@@ -1,6 +1,5 @@
 markdown:         rdiscount
 highlighter: pygments
-pygments:         true
 paginate:         4
 
 title:            Sharon's Blog
@@ -17,7 +16,7 @@ about: 			  "热爱生活、热爱技术、热爱运动的小姑娘"
 follow:
     github:       https://github.com/sharonlx
 
-
+markdown: redcarpet
 style: 			  /css/style.css
 blogName: 		  D大调交响乐
 blogDesc: 		  念念不忘 必有回响
