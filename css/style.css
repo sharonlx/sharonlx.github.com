@@ -45,6 +45,15 @@ body .fn-hide               { display:none; }
 .fn-left                    { float:left; }
 .fn-right                   { float:right; }
 .fn-center {text-align: center;}
+.no-bording{
+    border: none !important;
+}
+.no-shadow {
+    box-shadow: none !important;
+}
+.no-bgcolor {
+    background: none !important;
+}
 
 /*--------------------------------------------
                 default
@@ -104,6 +113,7 @@ body                        { background: url(/images/body-bg.jpg) repeat 0 0; }
 .content-cnt .aside .box img 
                             { width: 160px; height: 160px; border-radius: 20px;}
 .content-cnt .aside .box p  { line-height: 20px; padding-top: 10px; } 
+.content-cnt .aside .box p.p-desc{ background: url(/images/bg.png) repeat 0 0;text-align:left;}
 .content-cnt .aside .box .title 
                             { font-size: 14px; line-height: 24px; border-bottom: 1px dashed #888; font-family: Georgia; }
 .content-cnt .aside .box ul { padding: 10px 0 0; }
