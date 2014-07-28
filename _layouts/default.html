@@ -17,7 +17,7 @@
   <meta name="author" content="{{ site.author.name }}" />
   <meta name="description" content="{{ site.descripton }}" />
   <link rel="stylesheet" href="{{ site.style }}" type="text/css" />
-  <link rel="stylesheet" href="/assets/syntax.css" type="text/css" />
+  <link rel="stylesheet" href="/assets/highlight.css" type="text/css" />
   <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="{{ site.feed }}" />
   <link rel="shortcut icon" href="/blog/favicon.ico" type="image/x-icon" />
 </head>
@@ -29,5 +29,18 @@
     </article>
   </section>
     {% include foot.html %}
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'leexuanr'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    
 </body>
 </html>

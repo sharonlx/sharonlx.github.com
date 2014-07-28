@@ -17,7 +17,7 @@ Android版本的微信不会有这种问题。
 
 #####监听微信分享好友事件
 
-```ruby
+```js
 
 	// 发送给好友
 
@@ -58,7 +58,7 @@ Android版本的微信不会有这种问题。
  
 ##### 监听微信分享到朋友圈
  
-```ruby
+```js
 	WeixinJSBridge.on('menu:share:timeline', function (argv) {
 
         WeixinJSBridge.invoke('shareTimeline', {
@@ -88,7 +88,7 @@ Android版本的微信不会有这种问题。
  
 ##### 监听微信分享到腾讯微博
  
-```ruby
+```js
 WeixinJSBridge.on('menu:share:weibo', function (argv) {
 
     WeixinJSBridge.invoke('shareWeibo', {
@@ -107,7 +107,7 @@ WeixinJSBridge.on('menu:share:weibo', function (argv) {
 ```
  点击分享到腾讯微博，微信浏览器会触发 事件
 
-```ruby
+```js
 
 document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 
